@@ -48,7 +48,7 @@ check process php5-fpm with pidfile /var/run/php5-fpm.pid
     if loadavg(5min) greater than 10 for 8 cycles then stop
     if failed unixsocket /var/run/php5-fpm.sock then restart
     if 5 restarts within 5 cycles then timeout
-	
+
 check process postfix with pidfile /var/spool/postfix/pid/master.pid
     start program "/etc/init.d/postfix start"
     stop program "/etc/init.d/postfix stop"
@@ -61,7 +61,7 @@ check process sshd with pidfile /var/run/sshd.pid
     if failed host 127.0.0.1 port sshport protocol ssh then restart
     if 5 restarts within 5 cycles then timeout
 
-check process syslogd with pidfile /var/run/syslogd.pid
-    start program = "/etc/init.d/sysklogd start"
-    stop program = "/etc/init.d/sysklogd stop"
+check process rsyslogd with pidfile /var/run/rsyslogd.pid
+    start program = "/etc/init.d/rsyslog start"
+    stop program = "/etc/init.d/rsyslog stop"
     if 5 restarts within 5 cycles then timeout
