@@ -19,19 +19,19 @@ echo -n "Enter the name of your sudo user: "
 read sudo_user
 while true; do
     echo -n "Enter the password for your sudo user: "
-    read -s sudo_user_passwd
+    read sudo_user_passwd
     echo ""
     echo -n "Confirm sudo user password: "
-    read -s sudo_user_passwd_confirm
+    read sudo_user_passwd_confirm
     echo ""
     passwd_check $sudo_user_passwd $sudo_user_passwd_confirm
     done
 while true; do
     echo -n "Enter the new root password: "
-    read -s root_passwd
+    read root_passwd
     echo ""
     echo -n "Confirm root user password: "
-    read -s root_passwd_confirm
+    read root_passwd_confirm
     echo ""
     passwd_check $root_passwd $root_passwd_confirm
     done
@@ -43,10 +43,10 @@ echo -n "Enter the WordPress admin user: "
 read wpuser
 while true; do
     echo -n "Enter the WordPress admin password: "
-    read -s wppass
+    read wppass
     echo ""
     echo -n "Confirm the WordPress admin password: "
-    read -s wppass_confirm
+    read wppass_confirm
     echo ""
     passwd_check $wppass $wppass_confirm
     done
