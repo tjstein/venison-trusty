@@ -20,19 +20,15 @@ read sudo_user
 while true; do
     echo -n "Enter the password for your sudo user: "
     read sudo_user_passwd
-    echo ""
     echo -n "Confirm sudo user password: "
     read sudo_user_passwd_confirm
-    echo ""
     passwd_check $sudo_user_passwd $sudo_user_passwd_confirm
     done
 while true; do
     echo -n "Enter the new root password: "
     read root_passwd
-    echo ""
     echo -n "Confirm root user password: "
     read root_passwd_confirm
-    echo ""
     passwd_check $root_passwd $root_passwd_confirm
     done
 echo -n "Enter the desired SSH port: "
@@ -44,10 +40,8 @@ read wpuser
 while true; do
     echo -n "Enter the WordPress admin password: "
     read wppass
-    echo ""
     echo -n "Confirm the WordPress admin password: "
     read wppass_confirm
-    echo ""
     passwd_check $wppass $wppass_confirm
     done
 echo -n "Enter the WordPress admin email address: "
