@@ -310,21 +310,6 @@ define('WP_CACHE', true);' /home/$sudo_user/$hostname/wp-config.php
   echo "done."
 }
 
-install_monit()
-{
-  echo -n "Setting up Monit... "
-  aptitude -y install monit > /dev/null 2>&1
-  perl -p -i -e 's|startup=0|startup=1|g;' /etc/default/monit
-  mv /etc/monit/monitrc /etc/monit/monitrc.bak
-  cp files/monitrc /etc/monit/monitrc
-  chmod 700 /etc/monit/monitrc
-  sed -i -r "s/mydomain.com/$hostname/g" /etc/monit/monitrc
-  sed -i -r "s/monitemail/$wpemail/g" /etc/monit/monitrc
-  sed -i -r "s/sshport/$ssh_port/g" /etc/monit/monitrc
-  service monit restart > /dev/null 2>&1
-  echo "done."
-}
-
 print_report()
 {
   echo ""
@@ -417,9 +402,6 @@ install_postfix
 
 # configure wordpress
 configure_wp
-
-# install monit
-install_monit
 
 # clean up tmp
 cleanup
