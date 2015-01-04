@@ -211,6 +211,8 @@ install_php()
   perl -p -i -e 's|;realpath_cache_size = 16k|realpath_cache_size = 128k|g;' /etc/php5/fpm/php.ini
   perl -p -i -e 's|;realpath_cache_ttl = 120|realpath_cache_ttl = 600|g;' /etc/php5/fpm/php.ini
   perl -p -i -e 's|disable_functions =|disable_functions = "system,exec,shell_exec,passthru,escapeshellcmd,popen,pcntl_exec"|g;' /etc/php5/fpm/php.ini
+  echo "opcache.memory_consumption=512" >> /etc/php5/mods-available/opcache.ini
+  echo "opcache.max_accelerated_files=50000" >> /etc/php5/mods-available/opcache.ini
   service php5-fpm stop > /dev/null 2>&1
   service php5-fpm start > /dev/null 2>&1
   echo "done."
