@@ -228,6 +228,9 @@ install_mysql()
   cp files/my.cnf /etc/mysql/
   touch /var/log/mysql/mysql-slow.log
   chown mysql:mysql /var/log/mysql/mysql-slow.log
+  mkdir /run/mysqld/tmp/
+  chown -R mysql:mysql /run/mysqld/tmp/
+  chmod 1777 /run/mysqld/tmp/
   service mysql restart > /dev/null 2>&1
   echo "done."
 }
