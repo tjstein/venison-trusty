@@ -117,7 +117,10 @@ config_ssh()
 {
   conf='/etc/ssh/sshd_config'
   echo -n "Configuring SSH... "
-  mkdir ~/.ssh && chmod 700 ~/.ssh/
+  if [ -d "~/.ssh" ]
+  then
+    mkdir ~/.ssh && chmod 700 ~/.ssh/
+  fi
   cp /etc/ssh/sshd_config /etc/ssh/sshd_config.`date "+%Y-%m-%d"`
   sed -i -r 's/\s*X11Forwarding\s+yes/X11Forwarding no/g' $conf
   sed -i -r 's/\s*UsePAM\s+yes/UsePAM no/g' $conf
